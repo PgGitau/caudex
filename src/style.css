@@ -2,29 +2,99 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
+    font-family: IBM Plex Mono, sans-serif;
 }
 
 img {
     display: block;
 }
 
+ul {
+    list-style-type: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* NAVBAR */
+.nav-container {
+    height: 80px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+}
+
+.logo {
+    height: 100%;
+    width: 100px;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.nav-list .flex {
+    gap: 1rem;
+}
+
+/* HERO */
 .hero-container {
     height: 600px;
     width: 100%;
     position: relative;
     /* border: 2px solid green; */
-    padding: 1rem;
+    padding: .5rem;
 }
 
 .herotext-container {
     height: 20%;
-    width: 100%;
-    color: #000000;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: center;
+    width: 90%;
+    margin-inline: auto;
     /* border: 2px solid blue; */
+}
+
+.herotext-minor {
+    display: grid;
+    grid-template: 1fr / .35fr .65fr;
+}
+
+.herotext-minor p.welcome,
+.about-header h2,
+.technologies-header h2 {
+    font-size: 5rem;
+    font-family: fantasy;
+    color: #00000063;
+}
+
+.herotext-major {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 80%;
+    margin-left: auto;
+    color: #434343;
+    font-family: IBM Plex Mono, sans-serif;
+}
+
+.herotext-major h1 {
+    text-transform: uppercase;
+    font-weight: 420;
+    font-size: 16px;
 }
 
 .video-container {
@@ -42,9 +112,6 @@ img {
     width: 100%;
     object-fit: cover;
     object-position: center;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
 }
 
 .text-box {
@@ -55,6 +122,7 @@ img {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     mix-blend-mode: screen;
@@ -62,8 +130,199 @@ img {
 
 p.caudex {
     font-size: 420px;
-    /* height: 500px; */
+    height: 100%;
     /* border: 2px solid red; */
     font-weight: bolder;
     font-family: fantasy;
 }
+
+/* about */
+.about-container {
+    grid-template: .25fr .75fr / 1fr 1fr;
+    height: 500px;
+    width: 90%;
+    margin-inline: auto;
+    padding: .5rem;
+    margin-block: 4rem;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.about-header {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.about-cta {
+    height: 100%;
+    width: 100%;
+    grid-area: 2 / 1 / 3 / 2;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-inline: 1rem;
+}
+
+.about-cta p.about-text {
+    font-family: IBM Plex Mono, sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.about-cta a {
+    border: 1px solid #000;
+    background-color: #000;
+    width: max-content;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.about-content {
+    grid-area: 1 / 2 / 3 / 3;
+    height: 100%;
+    color: #434343;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* technologies */
+.technologies-container {
+    grid-template: 1fr / .3fr .7fr;
+    width: 98%;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+    align-items: center;
+    color: #767676;
+}
+
+.box-container {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+}
+
+.box-container::before,
+.box-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+
+.box-container::before {
+    left: 0;
+    background: linear-gradient(to left, #ffffff00, #fff);
+}
+
+.box-container::after {
+    right: 0;
+    background: linear-gradient(to right, #ffffff00, #fff);
+    
+}
+
+.boxes {
+    gap: 1rem;
+    animation: 10s loader infinite linear;
+    position: relative;
+}
+
+.boxes::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #f9f9f94a;
+}
+
+.box-container:hover .boxes {
+    animation-play-state: paused;
+}
+
+.box {
+    height: 100px;
+    width: 200px;
+    /* background-color: #ececec; */
+}
+
+.box img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@keyframes loader {
+    from{
+        transform: translatex(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+
+.bounce-me {
+    opacity:1 !important;
+    animation: bounce-in-top 1s both;
+  }
+  
+  @keyframes bounce-in-top {
+    0% {
+      -webkit-transform: translateY(-500px);
+      transform: translateY(-500px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: translateY(-65px);
+      transform: translateY(-65px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: translateY(-28px);
+      transform: translateY(-28px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    90% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+  }
