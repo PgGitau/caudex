@@ -138,10 +138,7 @@ a {
     grid-template: 1fr / .35fr .65fr;
 }
 
-.herotext-minor p.welcome,
-.about-header h2,
-.technologies-header h2,
-.services-header h2 {
+.herotext-minor p.welcome {
     font-size: 5rem;
     font-family: fantasy;
     color: #00000063;
@@ -419,10 +416,16 @@ p.caudex {
     width: 100%;
   }
 
+  .about-header h2,
+  .technologies-header h2,
   .services-header h2 {
-    font-family: IBM Plex Mono, sans-serif;
-    color: #ffffff;
-    font-weight: 300; 
+    font-size: 5rem;
+    font-weight: 300;
+    color: #00000063;
+  }
+
+  .services-header h2 {
+    color: #fff;
   }
 
 .services-content {
