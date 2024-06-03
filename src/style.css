@@ -474,3 +474,15 @@ p.caudex {
     object-fit: cover;
     object-position: center;
   }
+
+  /* FOOTER */
+  footer {
+    margin-top: 4rem;
+    background-color: #000;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
