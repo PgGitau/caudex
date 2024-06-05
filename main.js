@@ -39,3 +39,13 @@ const myDemo = (function () {
   
   myDemo.init();
   
+
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault() // Cancel the default action
+        sendContactForm();
+    });
+});
+
+
